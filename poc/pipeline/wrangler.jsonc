@@ -1,0 +1,7 @@
+{
+  "$schema": "../playback/node_modules/wrangler/config-schema.json",
+  "name": "zero-cast-poc-pipeline",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  "ai": { "binding": "AI", "remote": true }
+}

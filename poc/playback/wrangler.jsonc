@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "zero-cast-poc-playback",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  // *.nharu.dev は Cloudflare Access の nharu-private で保護される。公開 URL は無効にする。
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "zero-cast.nharu.dev", "custom_domain": true }],
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/audio/*", "/poc/*"]
+  },
+  "r2_buckets": [{ "binding": "BUCKET", "bucket_name": "zero-cast-poc" }],
+  "observability": { "enabled": true }
+}
